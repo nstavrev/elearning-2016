@@ -1,0 +1,22 @@
+<div *ngFor="let text of course.annotation.text">
+    <h5 class="center-align">
+        {{text}}
+    </h5>
+</div>
+<ul class="collection">
+    <li  *ngFor="let content of course.annotation.content" class="collection-item">
+        <p class="collection-item" *ngIf="!content.presentation">
+        {{content.text}}
+        </p>
+        <a class="collection-item" target="_blank" *ngIf="content.presentation" href="{{content.presentation}}">
+        {{content.text}} <span class="secondary-content"><i class="material-icons">pageview</i></span>
+        </a>
+        <!--<ul class="collection">-->
+            <!--<li class="collection-item">-->
+                <!--<a href="">-->
+                    <!--Упражнение 1-->
+                <!--</a>-->
+            <!--</li>-->
+        <!--</ul>-->
+    </li>
+</ul>
