@@ -1,5 +1,6 @@
 export var COURSES = [{
     id : "1",
+    logo : "https://angular.io/resources/images/logos/angular2/angular.svg",
     name : "Разработка на уеб приложения чрез средствата на Angular2",
     annotation : {
         text : [

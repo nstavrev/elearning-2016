@@ -10,8 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var mock_courses_1 = require("./services/mock-courses");
 var HomeComponent = (function () {
     function HomeComponent() {
+        this.courses = mock_courses_1.COURSES;
     }
     HomeComponent.prototype.ngOnInit = function () {
         $(".dropdown-button").dropdown();
