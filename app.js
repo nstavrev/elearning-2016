@@ -8,4 +8,4 @@ app.use(function (req,res) {
     res.sendFile(path.join(__dirname, "web", "index.html"))
 })
 
-app.listen(1337);
+app.listen(process.env.PORT || 8080);
