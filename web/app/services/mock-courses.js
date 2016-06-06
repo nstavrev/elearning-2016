@@ -14,11 +14,28 @@ exports.COURSES = [{
                 },
                 {
                     text: "Components - Основната градивна единица на всяко Angular2 приложение",
-                    presentation: "app/services/presentation-1.html"
+                    presentation: "app/services/presentation-1.html",
+                    exams: [{
+                            name: "Упражение 1 - Components",
+                            link: "app/services/exam-1-1.html"
+                        }, {
+                            name: "Упражнение 2 - Components",
+                            link: "app/services/exam-1-2.html"
+                        }]
                 },
                 {
                     text: "Databinding - Работа с данни.DOM манипулации.",
-                    presentation: "app/services/presentation-2.html"
+                    presentation: "app/services/presentation-2.html",
+                    exams: [{
+                            name: "Упражение 1 - Databinding",
+                            link: "app/services/exam-2-1.html"
+                        }, {
+                            name: "Упражение 2 - Databinding",
+                            link: "app/services/exam-2-2.html"
+                        }, {
+                            name: "Упражение 3 - Databinding",
+                            link: "app/services/exam-2-3.html"
+                        }]
                 },
                 {
                     text: "Directives - Какво е директива.Как да ги използваме.DOM манипулации чрез директиви."

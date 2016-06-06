@@ -5,18 +5,20 @@
 </div>
 <ul class="collection">
     <li  *ngFor="let content of course.annotation.content" class="collection-item">
-        <p class="collection-item" *ngIf="!content.presentation">
+        <h5 class="collection-item" *ngIf="!content.presentation">
         {{content.text}}
-        </p>
-        <a class="collection-item" target="_blank" *ngIf="content.presentation" href="{{content.presentation}}">
-        {{content.text}} <span class="secondary-content"><i class="material-icons">pageview</i></span>
-        </a>
-        <!--<ul class="collection">-->
-            <!--<li class="collection-item">-->
-                <!--<a href="">-->
-                    <!--Упражнение 1-->
-                <!--</a>-->
-            <!--</li>-->
-        <!--</ul>-->
+        </h5>
+        <h5 *ngIf="content.presentation">
+            <a class="collection-item" target="_blank" href="{{content.presentation}}">
+                {{content.text}} <span class="secondary-content"><i class="material-icons">pageview</i></span>
+            </a>
+        </h5>
+        <ul *ngIf="content.exams" class="collapsible collection" data-collapsible="accordion">
+            <li *ngFor="let exam of content.exams">
+                <a target="_blank" href="{{exam.link}}" class="collapsible-header">
+                    {{exam.name}}
+                </a>
+            </li>
+        </ul>
     </li>
 </ul>
