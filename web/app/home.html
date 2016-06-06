@@ -9,9 +9,8 @@
                     {{course.name}}
                     <i class="material-icons right">more_vert</i>
                 </span>
-                <p>
-                    <a [routerLink]="['/Course', { id : course.id}]">Към курса</a>
-                </p>
+                <br>
+                <a [routerLink]="['/Course', { id : course.id}]" class="btn waves-effect waves-light indigo">Към курса <i class="material-icons right">send</i></a>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>

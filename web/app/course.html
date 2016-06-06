@@ -1,19 +1,21 @@
-<div *ngFor="let text of course.annotation.text">
-    <h5 class="center-align">
-        {{text}}
+<div class="card-panel teal lighten-2 no-margin">
+    <h5 class="center-align header">
+        {{course.name}}
     </h5>
+
+    <p *ngFor="let text of course.annotation.text" class="center-align">{{text}}</p>
 </div>
 
-<ul class="collection">
+<ul class="collection no-margin">
     <li  *ngFor="let content of course.annotation.content" class="collection-item">
-        <h5 class="collection-item" *ngIf="!content.presentation">
+        <h6 class="collection-item" *ngIf="!content.presentation">
         {{content.text}}
-        </h5>
-        <h5 *ngIf="content.presentation">
+        </h6>
+        <h6 *ngIf="content.presentation">
             <a class="collection-item" target="_blank" href="{{content.presentation}}">
                 {{content.text}} <span class="secondary-content"><i class="material-icons">pageview</i></span>
             </a>
-        </h5>
+        </h6>
         <ul *ngIf="content.exams" class="collapsible collection" data-collapsible="accordion">
             <li *ngFor="let exam of content.exams">
                 <a target="_blank" href="{{exam.link}}" class="collapsible-header">
