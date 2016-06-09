@@ -13,6 +13,8 @@ var router_deprecated_1 = require('@angular/router-deprecated');
 var mock_courses_1 = require("./services/mock-courses");
 var CourseComponent = (function () {
     function CourseComponent(params, router) {
+        this.isIntroVisible = false;
+        this.areLecturesVisible = false;
         this.course = mock_courses_1.COURSES.find(function (course) {
             return course.id == params.get("id");
         });
@@ -20,6 +22,22 @@ var CourseComponent = (function () {
             router.navigate(["Home"]);
         }
     }
+    CourseComponent.prototype.showIntro = function () {
+        if (this.isIntroVisible) {
+            this.isIntroVisible = false;
+        }
+        else {
+            this.isIntroVisible = true;
+        }
+    };
+    CourseComponent.prototype.showLectures = function () {
+        if (this.areLecturesVisible) {
+            this.areLecturesVisible = false;
+        }
+        else {
+            this.areLecturesVisible = true;
+        }
+    };
     CourseComponent = __decorate([
         core_1.Component({
             selector: 'course',

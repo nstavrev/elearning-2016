@@ -10,6 +10,10 @@ export class CourseComponent {
 
     private course;
 
+    private isIntroVisible:boolean = false;
+
+    private areLecturesVisible:boolean = false;
+
     constructor(params:RouteParams, router: Router){
         this.course = COURSES.find((course) => {
             return course.id == params.get("id");
@@ -18,8 +22,22 @@ export class CourseComponent {
         if(this.course == undefined){
             router.navigate(["Home"]);
         }
-
-
-
     }
+
+    showIntro(){
+        if(this.isIntroVisible){
+            this.isIntroVisible = false;
+        } else {
+            this.isIntroVisible = true;
+        }
+    }
+
+    showLectures(){
+        if(this.areLecturesVisible){
+            this.areLecturesVisible = false;
+        } else {
+            this.areLecturesVisible = true;
+        }
+    }
+
 }

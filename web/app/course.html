@@ -3,13 +3,142 @@
         {{course.name}}
     </h5>
 
-    <p *ngFor="let text of course.annotation.text" class="center-align">{{text}}</p>
+    <!--<p *ngFor="let text of course.annotation.text" class="center-align">{{text}}</p>-->
 </div>
 
 <ul class="collection no-margin">
-    <li  *ngFor="let content of course.annotation.content" class="collection-item">
+    <li>
+        <h6 class="collection-item">
+            <a href="javascript:void(0)" (click)="showIntro()">
+                {{course.courseTitle}}
+            </a>
+            <ul *ngIf="isIntroVisible" class="collapsible collection" data-collapsible="accordion">
+                <li>
+                    <h6 class="collection-item">Преподавателски екип</h6>
+                    <ul class="collapsible collection" data-collapsible="accordion">
+                        <li>Николай Ставрев</li>
+                        <li>Михаела Алексова</li>
+                    </ul>
+                </li>
+                <li>
+                    <h6 class="collection-item">Цели на курса</h6>
+                    <ul class="collapsible collection" data-collapsible="accordion">
+                        <li>
+                            {{course.annotation.text[0]}}
+                        </li>
+                        <li>
+                            {{course.annotation.text[1]}}
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h6 class="collection-item"> Умения </h6>
+                    <ul>
+                        <li>
+                            {{course.annotation.text[2]}}
+                        </li>
+                        <li>
+                            {{course.annotation.text[3]}}
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h6 class="collection-item">Изисквания</h6>
+                    <ul>
+                        <li>
+                            {{course.annotation.text[4]}}
+                        </li>
+                        <li>
+                            {{course.annotation.text[5]}}
+                        </li>
+                        <li>
+                            {{course.annotation.text[6]}}
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h6 class="collection-item"> Оценяване </h6>
+                    <ul>
+                        <li>
+                            <h7 class="collection-item">Оценка от контролни</h7>
+                            <ul>
+                                <li>
+                                    Контролно 1 - 10%
+                                </li>
+                                <li>
+                                    Контролно 2 - 20%
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h7 class="collection-item"> Оценка от изпит - 70% </h7>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h6 class="collection-item"> Литература </h6>
+                    <ul>
+                        <li>http://angular.io</li>
+                    </ul>
+                </li>
+                <li>
+                    <h6 class="collection-item">Структура на курса</h6>
+                    <ul>
+                        <li>
+                            Лекции
+                        </li>
+                        <li>
+                            Упражнения
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    График на лекции и упражнения
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>
+                                    Тема
+                                </td>
+                                <td>
+                                    Брой седмици
+                                </td>
+                                <td>
+                                    Хорариум
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let content of course.content; let i = index">
+                                <td>
+                                    {{content.text}}
+                                </td>
+                                <td>
+                                    2 седмици
+                                </td>
+                                <td>
+                                    2лек + 2упр
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </li>
+                <!--<li *ngFor="let text of course.annotation.text" class="collapsible collection">-->
+                    <!--{{text}}-->
+                <!--</li>-->
+            </ul>
+        </h6>
+    </li>
+    <li class="collection-item">
+        <h6 class="collection-item"><a href="javascript:void(0)" (click)="showLectures()">Лекции </a></h6>
+    </li>
+</ul>
+
+<ul *ngIf="areLecturesVisible" class="collection no-margin">
+    <li  *ngFor="let content of course.content" class="collection-item">
         <h6 class="collection-item" *ngIf="!content.presentation">
-        {{content.text}}
+            {{content.text}}
         </h6>
         <h6 *ngIf="content.presentation">
             <a class="collection-item" target="_blank" href="{{content.presentation}}">
