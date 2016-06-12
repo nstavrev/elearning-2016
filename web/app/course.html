@@ -2,19 +2,26 @@
     <h5 class="center-align header">
         {{course.name}}
     </h5>
+    <nav class="teal lighten-2 nav-inner">
+        <ul>
+            <li>
+                <a href="javascript:void(0)" (click)="showIntro()">
+                    {{course.title}}
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" (click)="showLectures()">Лекции </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 <ul class="collection no-margin">
     <li>
         <h6 class="collection-item">
-            <a href="javascript:void(0)" (click)="showIntro()">
-                {{course.title}}
-            </a>
             <ul class="collapsible popout collection" data-collapsible="accordion">
                 <li>
-                    <div class="collapsible-header">
-                        <h6 class="collection-item">Преподавателски екип</h6>
-                    </div>
+                    <h6 class="collection-item collapsible-header">Преподавателски екип</h6>
                     <div class="collapsible-body">
                         <ul class="collapsible popout collection nested" data-collapsible="accordion">
                             <li>Николай Ставрев</li>
@@ -23,15 +30,17 @@
                     </div>
                 </li>
                 <li>
-                    <h6 class="collection-item">Цели на курса</h6>
-                    <ul class="collapsible popout collection nested" data-collapsible="accordion">
-                        <li>
-                            {{course.annotation.text[0]}}
-                        </li>
-                        <li>
-                            {{course.annotation.text[1]}}
-                        </li>
-                    </ul>
+                    <h6 class="collection-item  collapsible-header">Цели на курса</h6>
+                    <div class="collapsible-body">
+                        <ul class="collapsible popout collection nested" data-collapsible="accordion">
+                            <li>
+                                {{course.annotation.text[0]}}
+                            </li>
+                            <li>
+                                {{course.annotation.text[1]}}
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <h6 class="collection-item"> Умения </h6>
@@ -132,9 +141,6 @@
             </ul>
         </h6>
     </li>
-    <li class="collection-item">
-        <h6 class="collection-item"><a href="javascript:void(0)" (click)="showLectures()">Лекции </a></h6>
-    </li>
 </ul>
 
 <ul *ngIf="areLecturesVisible" class="collection no-margin">
@@ -147,9 +153,9 @@
                 {{content.text}} <span class="secondary-content"><i class="material-icons">pageview</i></span>
             </a>
         </h6>
-        <ul *ngIf="content.exams" class="collapsible popout collection" data-collapsible="accordion">
+        <ul *ngIf="content.exams" class="collapsible collection" data-collapsible="accordion">
             <li *ngFor="let exam of content.exams">
-                <a target="_blank" href="{{exam.link}}" class="collapsible popout-header">
+                <a target="_blank" href="{{exam.link}}">
                     {{exam.name}}
                 </a>
             </li>
