@@ -22,6 +22,13 @@ var CourseComponent = (function () {
             router.navigate(["Home"]);
         }
     }
+    CourseComponent.prototype.ngOnInit = function () {
+        $(document).ready(function () {
+            $('.collapsible').collapsible({
+                accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+            });
+        });
+    };
     CourseComponent.prototype.showIntro = function () {
         if (this.isIntroVisible) {
             this.isIntroVisible = false;
