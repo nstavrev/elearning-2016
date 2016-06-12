@@ -2,15 +2,13 @@
     <h5 class="center-align header">
         {{course.name}}
     </h5>
-
-    <!--<p *ngFor="let text of course.annotation.text" class="center-align">{{text}}</p>-->
 </div>
 
 <ul class="collection no-margin">
     <li>
         <h6 class="collection-item">
             <a href="javascript:void(0)" (click)="showIntro()">
-                {{course.courseTitle}}
+                {{course.title}}
             </a>
             <ul *ngIf="isIntroVisible" class="collapsible collection" data-collapsible="accordion">
                 <li>
@@ -109,7 +107,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let content of course.content; let i = index">
+                            <tr *ngFor="let content of course.content">
                                 <td>
                                     {{content.text}}
                                 </td>
