@@ -4,24 +4,24 @@
     </h5>
     <nav class="teal lighten-2 nav-inner">
         <ul>
-            <li>
+            <li [ngClass]="{ active : isIntroVisible }">
                 <a href="javascript:void(0)" (click)="showIntro()">
                     {{course.title}}
                 </a>
             </li>
-            <li>
-                <a href="javascript:void(0)" (click)="showLectures()">Лекции </a>
+            <li [ngClass]="{ active : areLecturesVisible }">
+                <a href="javascript:void(0)" (click)="showLectures()">Лекции</a>
             </li>
         </ul>
     </nav>
 </div>
 
-<ul class="collection no-margin">
+<ul [ngClass]="{ hide : !isIntroVisible }" class="collection no-margin">
     <li>
         <h6 class="collection-item">
             <ul class="collapsible popout collection" data-collapsible="accordion">
                 <li>
-                    <h6 class="collection-item collapsible-header">Преподавателски екип</h6>
+                    <h6 class="collection-item collapsible-header active">Преподавателски екип</h6>
                     <div class="collapsible-body">
                         <ul class="collapsible popout collection nested" data-collapsible="accordion">
                             <li>Николай Ставрев</li>
@@ -43,97 +43,109 @@
                     </div>
                 </li>
                 <li>
-                    <h6 class="collection-item"> Умения </h6>
-                    <ul class="collapsible popout collection nested">
-                        <li>
-                            {{course.annotation.text[2]}}
-                        </li>
-                        <li>
-                            {{course.annotation.text[3]}}
-                        </li>
-                    </ul>
+                    <h6 class="collection-item collapsible-header"> Умения </h6>
+                    <div class="collapsible-body">
+                        <ul class="collapsible popout collection nested">
+                            <li>
+                                {{course.annotation.text[2]}}
+                            </li>
+                            <li>
+                                {{course.annotation.text[3]}}
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
-                    <h6 class="collection-item">Изисквания</h6>
-                    <ul class="collapsible popout collection nested">
-                        <li>
-                            {{course.annotation.text[4]}}
-                        </li>
-                        <li>
-                            {{course.annotation.text[5]}}
-                        </li>
-                        <li>
-                            {{course.annotation.text[6]}}
-                        </li>
-                    </ul>
+                    <h6 class="collection-item collapsible-header">Изисквания</h6>
+                    <div class="collapsible-body">
+                        <ul class="collapsible popout collection nested">
+                            <li>
+                                {{course.annotation.text[4]}}
+                            </li>
+                            <li>
+                                {{course.annotation.text[5]}}
+                            </li>
+                            <li>
+                                {{course.annotation.text[6]}}
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
-                    <h6 class="collection-item"> Оценяване </h6>
-                    <ul class="collapsible popout collection nested">
-                        <li>
-                            <h6 class="collection-item">Оценка от контролни</h6>
-                            <section class="last-level">
-                                <p>
-                                        Контролно 1 - 10%
-                                </p>
-                                <p>
-                                        Контролно 2 - 20%
-                                </p>
-                            </section>
-                        </li>
-                        <li>
-                            <h7 class="collection-item"> Оценка от изпит - 70% </h7>
-                        </li>
-                    </ul>
+                    <h6 class="collection-item collapsible-header"> Оценяване </h6>
+                    <div class="collapsible-body">
+                        <ul class="collapsible popout collection nested">
+                            <li>
+                                <h6 class="collection-item">Оценка от контролни</h6>
+                                <section class="last-level">
+                                    <p>
+                                            Контролно 1 - 10%
+                                    </p>
+                                    <p>
+                                            Контролно 2 - 20%
+                                    </p>
+                                </section>
+                            </li>
+                            <li>
+                                <h7 class="collection-item"> Оценка от изпит - 70% </h7>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
-                    <h6 class="collection-item"> Литература </h6>
-                    <ul class="collapsible popout collection nested">
-                        <li>http://angular.io</li>
-                    </ul>
+                    <h6 class="collection-item collapsible-header"> Литература </h6>
+                    <div class="collapsible-body">
+                        <ul class="collapsible popout collection nested">
+                            <li>http://angular.io</li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
-                    <h6 class="collection-item">Структура на курса</h6>
-                    <ul class="collapsible popout collection nested">
-                        <li>
-                            Лекции
-                        </li>
-                        <li>
-                            Упражнения
-                        </li>
-                    </ul>
+                    <h6 class="collection-item collapsible-header">Структура на курса</h6>
+                    <div class="collapsible-body">
+                        <ul class="collapsible popout collection nested">
+                            <li>
+                                Лекции
+                            </li>
+                            <li>
+                                Упражнения
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
-                    <h6 class="collection-item">График на лекции и упражнения</h6>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>
-                                    Тема
-                                </td>
-                                <td class="second">
-                                    Брой седмици
-                                </td>
-                                <td class="third">
-                                    Хорариум
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let content of course.content">
-                                <td>
-                                    {{content.text}}
-                                </td>
-                                <td>
-                                    2 седмици
-                                </td>
-                                <td>
-                                    2лек + 2упр
-                                </td>
-                            </tr>
+                    <h6 class="collection-item collapsible-header">График на лекции и упражнения</h6>
+                    <div class="collapsible-body">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        Тема
+                                    </td>
+                                    <td class="second">
+                                        Брой седмици
+                                    </td>
+                                    <td class="third">
+                                        Хорариум
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let content of course.content">
+                                    <td>
+                                        {{content.text}}
+                                    </td>
+                                    <td>
+                                        2 седмици
+                                    </td>
+                                    <td>
+                                        2лек + 2упр
+                                    </td>
+                                </tr>
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </li>
                 <!--<li *ngFor="let text of course.annotation.text" class="collapsible popout collection">-->
                     <!--{{text}}-->
@@ -143,7 +155,7 @@
     </li>
 </ul>
 
-<ul *ngIf="areLecturesVisible" class="collection no-margin">
+<ul [ngClass]="{ hide : !areLecturesVisible }" class="collection no-margin">
     <li  *ngFor="let content of course.content" class="collection-item">
         <h6 class="collection-item" *ngIf="!content.presentation">
             {{content.text}}

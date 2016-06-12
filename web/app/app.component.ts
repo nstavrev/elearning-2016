@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import {HomeComponent} from "./home.component";
 import {CourseComponent} from "./course.component";
+
+declare var $:any;
 
 @Component({
     selector: 'application',
@@ -14,4 +16,10 @@ import {CourseComponent} from "./course.component";
     { path : "/", component : HomeComponent, as : "Home" },
     { path : "/course/:id", component : CourseComponent, as : "Course" }
 ])
-export class AppComponent { }
+export class AppComponent implements OnInit{
+
+    ngOnInit():any {
+        $(".dropdown-button").dropdown();
+    }
+    
+}

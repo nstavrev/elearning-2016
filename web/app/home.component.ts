@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import {ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {COURSES} from "./services/mock-courses";
@@ -10,12 +10,8 @@ declare var $:any;
     templateUrl : "app/home.html",
     directives : [ROUTER_DIRECTIVES]
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent {
 
     courses = COURSES;
-
-    ngOnInit():any {
-        $(".dropdown-button").dropdown();
-    }
 
 }

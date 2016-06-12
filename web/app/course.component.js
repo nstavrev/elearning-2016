@@ -13,7 +13,7 @@ var router_deprecated_1 = require('@angular/router-deprecated');
 var mock_courses_1 = require("./services/mock-courses");
 var CourseComponent = (function () {
     function CourseComponent(params, router) {
-        this.isIntroVisible = false;
+        this.isIntroVisible = true;
         this.areLecturesVisible = false;
         this.course = mock_courses_1.COURSES.find(function (course) {
             return course.id == params.get("id");
@@ -36,6 +36,7 @@ var CourseComponent = (function () {
         else {
             this.isIntroVisible = true;
         }
+        this.areLecturesVisible = false;
     };
     CourseComponent.prototype.showLectures = function () {
         if (this.areLecturesVisible) {
@@ -44,6 +45,7 @@ var CourseComponent = (function () {
         else {
             this.areLecturesVisible = true;
         }
+        this.isIntroVisible = false;
     };
     CourseComponent = __decorate([
         core_1.Component({

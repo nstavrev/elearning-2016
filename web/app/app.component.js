@@ -15,6 +15,9 @@ var course_component_1 = require("./course.component");
 var AppComponent = (function () {
     function AppComponent() {
     }
+    AppComponent.prototype.ngOnInit = function () {
+        $(".dropdown-button").dropdown();
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'application',

@@ -20,7 +20,7 @@ export class CourseComponent implements OnInit {
 
     private course;
 
-    private isIntroVisible:boolean = false;
+    private isIntroVisible:boolean = true;
 
     private areLecturesVisible:boolean = false;
 
@@ -40,6 +40,8 @@ export class CourseComponent implements OnInit {
         } else {
             this.isIntroVisible = true;
         }
+
+        this.areLecturesVisible = false;
     }
 
     showLectures(){
@@ -48,6 +50,8 @@ export class CourseComponent implements OnInit {
         } else {
             this.areLecturesVisible = true;
         }
+
+        this.isIntroVisible = false;
     }
 
 }

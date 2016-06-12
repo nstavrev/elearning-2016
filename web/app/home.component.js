@@ -15,9 +15,6 @@ var HomeComponent = (function () {
     function HomeComponent() {
         this.courses = mock_courses_1.COURSES;
     }
-    HomeComponent.prototype.ngOnInit = function () {
-        $(".dropdown-button").dropdown();
-    };
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'home',
